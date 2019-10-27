@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class Hang_man:
+class Hangman:
     def __init__(self):
         self.dictionary = None
         self.guessed_word = None
@@ -40,7 +40,7 @@ class Hang_man:
         return False, self.to_str(self.secret_word)
 
     @staticmethod
-    def to_str( lst):
+    def to_str(lst):
         return ''.join(lst)
 
     def _indexes(self, letter):
@@ -60,7 +60,7 @@ class Player:
         self.mistake_num = 0
         self.result = None
         self.word = None
-        self.server = Hang_man()
+        self.server = Hangman()
 
     def play(self):
         while True:

@@ -4,7 +4,7 @@ Andrey Alekseev, Fall 2019.
 ## How to play
 Run in terminal:
 ```python
-from hangman.hang_man import Player
+from hangman.hangman import Player
 Player().play()
 ```
 ## How to change words in dictionary

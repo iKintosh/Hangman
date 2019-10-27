@@ -2,7 +2,7 @@ import builtins
 
 import mock
 
-from ..hangman.hang_man import Player
+from ..hangman.hangman import Player
 
 
 def test_get_letter_right_format():
