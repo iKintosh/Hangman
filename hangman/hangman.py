@@ -14,7 +14,7 @@ class Hangman:
 
     def load_dictionary(self):
         words = []
-        with open('dictionary.txt', 'r') as f:
+        with open('hangman/dictionary.txt', 'r') as f:
             for line in f:
                 words.append(line)
         self.dictionary = list(map(lambda x: x.strip().lower(), words))
@@ -60,33 +60,32 @@ class Player:
         self.result = None
         self.word = None
         self.server = Hangman()
-        self.play()
 
     def play(self):
         while True:
-            letter = self._get_letter()
+            letter = self.get_letter()
             if not letter:
                 continue
             self.result, self.word = self.server.check_letter(letter)
-            self._check_result()
+            self.check_result()
             self._print_word()
             game_status = self._game_status_check()
             if not game_status:
                 break
 
-    def _get_letter(self):
+    def get_letter(self):
         letter = input('Guess a letter: ')
-        if len(letter) != 1:
-            return False
         if not letter.isalpha():
             return False
-        letter.lower()
+        if len(letter) != 1:
+            return False
+        letter = letter.lower()
         return letter
 
     def _print_word(self):
         print(f'The word: {self.word}\n')
 
-    def _check_result(self):
+    def check_result(self):
         if self.result:
             print('Hit!\n')
         else:
@@ -105,4 +104,4 @@ class Player:
 
 
 if __name__ == '__main__':
-    Player()
+    Player().play()
