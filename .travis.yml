@@ -4,6 +4,7 @@ python:
 install:
   - pip install codecov
   - pip install numpy
+  - pip install mock
 script:
   - ./setup.py test
 after_success:

@@ -1,10 +1,9 @@
 import builtins
 
-import pytest
-from ..hangman.hangman import Player
-
 import mock
-import builtins
+import pytest
+
+from ..hangman.hangman import Player
 
 
 def test_get_letter_right_format():

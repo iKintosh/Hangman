@@ -15,7 +15,9 @@ setup(
         "hangman",
     ],
     install_requires=[
-        "numpy"
+        "numpy",
+        "mock",
+        "pytest"
     ],
     setup_requires=[
         "pytest-runner",
