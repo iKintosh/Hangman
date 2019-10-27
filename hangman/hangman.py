@@ -96,12 +96,12 @@ class Player:
 
     def _game_status_check(self):
         if self.mistake_num < self.max_mistake and '*' in self.word:
-            print()
+            print('')
             return True
-        if self.mistake_num < self.max_mistake and '*' not in self.word:
+        elif self.mistake_num < self.max_mistake and '*' not in self.word:
             print('You won!')
             return False
-        if self.mistake_num >= self.max_mistake:
+        else:
             print('You lost!')
             return False
 
