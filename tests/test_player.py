@@ -1,38 +1,37 @@
 import builtins
 
 import mock
-import pytest
 
-from ..hangman.hangman import Player
+from ..hangman.hang_man import Player
 
 
 def test_get_letter_right_format():
-    p = Player()
+    play = Player()
     letter = 'a'
     with mock.patch.object(builtins, 'input', lambda _: letter):
-        result = p.get_letter()
+        result = play.get_letter()
         assert letter == result
 
 
 def test_get_letter_cap_letter():
-    p = Player()
+    play = Player()
     letter = 'A'
     with mock.patch.object(builtins, 'input', lambda _: letter):
-        result = p.get_letter()
+        result = play.get_letter()
         assert letter.lower() == result
 
 
 def test_get_letter_dig():
-    p = Player()
+    play = Player()
     letter = '1'
     with mock.patch.object(builtins, 'input', lambda _: letter):
-        result = p.get_letter()
+        result = play.get_letter()
         assert result is False
 
 
 def test_get_letter_seq():
-    p = Player()
+    play = Player()
     letter = 'iugkb56'
     with mock.patch.object(builtins, 'input', lambda _: letter):
-        result = p.get_letter()
+        result = play.get_letter()
         assert result is False

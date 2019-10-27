@@ -1,9 +1,8 @@
-import pytest
-from ..hangman.hangman import Hangman
+from ..hangman.hang_man import Hang_man
 
 
 def test_to_str():
-    h = Hangman()
+    hang = Hang_man()
     lst = ['a', 'b', 'c']
-    result = h.to_str(lst)
+    result = hang.to_str(lst)
     assert result == 'abc'

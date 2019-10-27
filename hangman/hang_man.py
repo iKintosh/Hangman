@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class Hangman:
+class Hang_man:
     def __init__(self):
         self.dictionary = None
         self.guessed_word = None
@@ -14,8 +14,8 @@ class Hangman:
 
     def load_dictionary(self):
         words = []
-        with open('hangman/dictionary.txt', 'r') as f:
-            for line in f:
+        with open('hangman/dictionary.txt', 'r') as file:
+            for line in file:
                 words.append(line)
         self.dictionary = list(map(lambda x: x.strip().lower(), words))
 
@@ -37,17 +37,18 @@ class Hangman:
             for symb in ind:
                 self.secret_word[symb] = letter
             return True, self.to_str(self.secret_word)
-        else:
-            return False, self.to_str(self.secret_word)
+        return False, self.to_str(self.secret_word)
 
-    def to_str(self, lst):
+    @staticmethod
+    def to_str( lst):
         return ''.join(lst)
 
     def _indexes(self, letter):
         indexes = [-1]
         while True:
             try:
-                indexes.append(self.guessed_word.index(letter, indexes[-1] + 1))
+                indexes.append(self.guessed_word.index(
+                    letter, indexes[-1] + 1))
             except ValueError:
                 break
         return indexes[1:]
@@ -59,7 +60,7 @@ class Player:
         self.mistake_num = 0
         self.result = None
         self.word = None
-        self.server = Hangman()
+        self.server = Hang_man()
 
     def play(self):
         while True:
@@ -73,7 +74,8 @@ class Player:
             if not game_status:
                 break
 
-    def get_letter(self):
+    @staticmethod
+    def get_letter():
         letter = input('Guess a letter: ')
         if not letter.isalpha():
             return False
@@ -94,6 +96,7 @@ class Player:
 
     def _game_status_check(self):
         if self.mistake_num < self.max_mistake and '*' in self.word:
+            print()
             return True
         if self.mistake_num < self.max_mistake and '*' not in self.word:
             print('You won!')
