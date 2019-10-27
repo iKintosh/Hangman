@@ -98,12 +98,11 @@ class Player:
         if self.mistake_num < self.max_mistake and '*' in self.word:
             print('')
             return True
-        elif self.mistake_num < self.max_mistake and '*' not in self.word:
+        if self.mistake_num < self.max_mistake and '*' not in self.word:
             print('You won!')
             return False
-        else:
-            print('You lost!')
-            return False
+        print('You lost!')
+        return False
 
 
 if __name__ == '__main__':

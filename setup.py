@@ -9,7 +9,7 @@ setup(
     version="0.0.1",
     author="Andrey Alekseev",
     author_email="iLekseev@gmal.com",
-    url="https://github.com/iKintosh/Hangman",
+    url="https://github.com/iKintosh/hangman",
     license="MIT",
     packages=[
         "hangman",
